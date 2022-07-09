@@ -55,14 +55,14 @@ Style/ClassAndModuleChildren:
 
 # Offense count: 4
 # Configuration parameters: AllowedConstants.
-# Style/Documentation:
-#   Exclude:
-#     - 'spec/**/*'
-#     - 'test/**/*'
-#     - 'app/controllers/hello_controller.rb'
-#     - 'app/helpers/application_helper.rb'
-#     - 'app/helpers/hello_helper.rb'
-#     - 'config/application.rb'
+Style/Documentation:
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+    - 'app/controllers/hello_controller.rb'
+    - 'app/helpers/application_helper.rb'
+    - 'app/helpers/hello_helper.rb'
+    - 'config/application.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
