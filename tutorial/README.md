@@ -15,6 +15,9 @@ bundle install --without production
 - ActiveRecord::Base
   - 作成したオブジェクトはデータベースにアクセスできるようになる
   - データベースのカラムをあたかも Ruby の属性のように扱える
+- インスタンス変数
+  - `@foo = 1`
+- ERB: Embedded Ruby
 
 ## Rails
 
