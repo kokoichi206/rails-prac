@@ -5,3 +5,5 @@ RUN mkdir -p $APP
 COPY . $APP/
 
 WORKDIR $APP
+
+RUN bundle install
