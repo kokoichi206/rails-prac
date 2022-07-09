@@ -6,8 +6,10 @@ jobs:
   rubocop:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
         with:
           ruby-version: 3.0.4
       - name: Bundle install
@@ -15,10 +17,12 @@ jobs:
         run: |
           gem install bundler
           bundle install
+
       - name: Setup reviewdog
+        uses: reviewdog/action-setup@v1
+      - name: Check reviewdog version
         run: |
-          mkdir -p $HOME/bin && curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s -- -b $HOME/bin
-          echo ::add-path::$HOME/bin
+          reviewdog -version
 
       - name: Run rubocop with reviewdog
         env:
