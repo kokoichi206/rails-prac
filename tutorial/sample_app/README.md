@@ -2,6 +2,8 @@
 
 ``` sh
 rails _5.1.6_ new sample_app
+
+rails generate controller StaticPages home help
 ```
 
 ## Links

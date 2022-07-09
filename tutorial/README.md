@@ -29,6 +29,24 @@ first_user.microposts.first
 first_user.user
 ```
 
+migration
+
+``` sh
+rails db:migrate
+rails db:rollback
+rails db:migrate VERSION=0
+```
+
+## Rails Command
+
+|command|abbreviation|
+|---|---|
+|rails server|rails s|
+|rails console|rails c|
+|rails generate|rails g|
+|rails test|rails t|
+|bundle install|bundle|
+
 ## Memo
 
 - REpresentational State Transfer
