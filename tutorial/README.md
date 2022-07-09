@@ -7,3 +7,11 @@
 ``` sh
 bundle install --without production
 ```
+
+## Ruby
+
+- `:users` という記法は、Ruby 言語特有の「シンボル」と呼ばれるもの
+
+## Memo
+
+- REpresentational State Transfer
