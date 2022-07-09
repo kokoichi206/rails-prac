@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## scaffold
 
-Things you may want to cover:
+``` sh
+rails generate scaffold User name:string email:string
+rails db:migrate
+```
 
-* Ruby version
+## memo
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- `id` パラメータは Rails によって自動的に主キーとして DB に追加される〜
+- 
