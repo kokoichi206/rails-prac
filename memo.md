@@ -29,3 +29,17 @@ docker-compose build
 ```sh
 docker-compose up
 ```
+
+## Controller
+
+```sh
+dc up -d
+Starting hello_world_db_1 ... done
+Starting hello_world_app_1 ... done
+
+# "app" is the service name!!
+dc exec app bash
+
+# in container
+rails g controller hello
+```
