@@ -4,6 +4,9 @@
 rails _5.1.6_ new sample_app
 
 rails generate controller StaticPages home help
+
+# new アクションを追加
+rails generate controller Users new
 ```
 
 ## test
