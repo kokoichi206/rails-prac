@@ -42,6 +42,9 @@ user.name = "hogee"
 user.save
 # 
 user.update_attribute(:name, "El Duderino")
+
+
+Digest::MD5::hexdigest(email.downcase)
 ```
 
 ## test
