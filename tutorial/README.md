@@ -202,6 +202,11 @@ SCSSというフォーマットに対応。
 
 `bootstrap-sass`のgemで用意されている変数（[LESS変数一覧](https://getbootstrap.com/docs/3.4/customize/#less-variables)）
 
+### routing
+- 名前つきルート
+  - 基本的には`_path`書式を使う
+  - リダイレクトの場合のみ`_url`書式を使う
+
 ## Rails Command
 
 |command|abbreviation|
