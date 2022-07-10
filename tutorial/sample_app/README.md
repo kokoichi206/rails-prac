@@ -13,8 +13,9 @@ rails db:migrate
 rails db:rollback
 
 # email に index を追加する
-# ここの文の作り方のルールを調べる: 魔法みたい？
 rails generate migration add_index_to_users_email
+
+rails generate migration add_password_digest_to_users password_digest:string
 ```
 
 ## test

@@ -237,6 +237,8 @@ user.created_at = 1.year.ago
 
 - Active Recordはデータベースのレベルでは一意性を保証していない
   - データベースレベルでも一意性を（別途）強制する必要がある
+- セキュアなパスワードの実装は、`has_secure_password` というRailsのメソッドを呼び出すだけでほとんど終わってしまいます
+  - `password_digest` という属性がモデル内に含まれていることが、使用の条件！
 
 ### Commands
 
