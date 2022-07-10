@@ -1,0 +1,62 @@
+name: "Ruby on Rails CI"
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
+        with:
+          bundler-cache: true
+          ruby-version: 2.6
+
+      - name: Bundle install
+        working-directory: ./tutorial/sample_app
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Set up database schema # need ?
+        working-directory: ./tutorial/sample_app
+        run: rails db:migrate
+
+      - name: Run tests
+        working-directory: ./tutorial/sample_app
+        run: rails test
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
+        with:
+          bundler-cache: true
+          ruby-version: 2.6
+
+      - name: Bundle install
+        working-directory: ./tutorial/sample_app
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Setup reviewdog
+        uses: reviewdog/action-setup@v1
+      - name: Check reviewdog version
+        run: |
+          reviewdog -version
+
+      - name: Run rubocop with reviewdog
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: ./tutorial/sample_app
+        run: bundle exec rubocop | reviewdog -reporter=github-pr-review -f=rubocop
