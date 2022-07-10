@@ -7,6 +7,10 @@ rails generate controller StaticPages home help
 
 # new アクションを追加
 rails generate controller Users new
+
+rails generate model User name:string email:string
+rails db:migrate
+rails db:rollback
 ```
 
 ## test
