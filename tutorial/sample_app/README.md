@@ -18,6 +18,32 @@ rails generate migration add_index_to_users_email
 rails generate migration add_password_digest_to_users password_digest:string
 ```
 
+create user by hand
+
+```sh
+# into console
+rails console
+
+# create a uesr
+User.create(name: "Michael Hartl", email: "mhartl@example.com", password: "foobar", password_confirmation: "foobar")
+
+user = User.find_by(email: "mhartl@example.com")
+user.authenticate("wrong_password")
+user.authenticate("foobar")
+
+# 認証にはばんばんを使う
+>> !!user.authenticate("foobar")
+=> true
+>> !!user.authenticate("wrong_password")
+=> false
+
+# うまくいかない
+user.name = "hogee"
+user.save
+# 
+user.update_attribute(:name, "El Duderino")
+```
+
 ## test
 
 ### 目的

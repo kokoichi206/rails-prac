@@ -146,6 +146,9 @@ class Word < String
 end
 w = Word.new("foobar")
 w.palindrome?
+
+# 多重代入 (Multiple Assignment) 
+@user.password = @user.password_confirmation = "a" * 5
 ```
 
 ## Rails
