@@ -183,6 +183,24 @@ bin/spring stop
 - erb の生成する HTML の中の、画像ファイル等に対するランダムなsrcの文字列
   - 例えば画像ファイルを新しい画像に更新したときに、ブラウザ内に保存されたキャッシュに意図的にヒットさせないようにするための仕組み
 
+### アセットパイプライン
+
+静的コンテンツの生産性と管理を大幅に強化
+本番環境での効率性向上
+
+- アセットディレクトリ
+- マニフェストファイル
+  - 実際にアセットをまとめる処理を行うのはSprocketsというgem
+- プリプロセッサエンジン
+  - ファイルの拡張子を元に判断
+  - foobar.js.erb.coffee
+    - coffee -> erb -> js の順に適応される
+
+### Sass
+ネストと変数、とミックスイン。
+SCSSというフォーマットに対応。
+
+`bootstrap-sass`のgemで用意されている変数（[LESS変数一覧](https://getbootstrap.com/docs/3.4/customize/#less-variables)）
 
 ## Rails Command
 
