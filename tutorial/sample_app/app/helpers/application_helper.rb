@@ -1,5 +1,4 @@
 module ApplicationHelper
-  
   # 完全なタイトル
   # providerに定義があるときとない時で | の有無を変えるなど
   def full_title(page_title = '')
