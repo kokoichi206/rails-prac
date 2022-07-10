@@ -251,6 +251,35 @@ rails test:models
 rails test:integration
 ```
 
+### Environments
+
+``` sh
+rails console test
+rails server --environment production
+rails db:migrate RAILS_ENV=production
+```
+
+### yaml
+
+``` sh
+>> puts user.attributes.to_yaml
+---
+id: 1
+name: El Duderino
+email: mhartl@example.com
+created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: &1 2022-07-10 07:41:13.521787000 Z
+  zone: &2 !ruby/object:ActiveSupport::TimeZone
+    name: Etc/UTC
+  time: *1
+updated_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: &3 2022-07-10 07:45:41.137063000 Z
+  zone: *2
+  time: *3
+password_digest: "$2a$10$ccgDIfU9MN1VOLb6O6h9LuD8/m8Bu2kL//jgVAVLs4HKu4szTaEsy"
+=> nil
+y user.attributes でも一緒
+```
 
 ## Rails Command
 
@@ -265,6 +294,7 @@ rails test:integration
 ## Memo
 
 - REpresentational State Transfer
+  - RESTの原則に従う場合、リソースへの参照はリソース名とユニークなIDを使うのが普通
 - ポンド記号#
 - コントローラ名には複数形を使い、モデル名には単数系を用いる！
 - `created_at`と`updated_at`という２つの「マジックカラム (Magic Columns)」が追加される。。。
