@@ -33,6 +33,8 @@ IRB.conf[:PROMPT_MODE] = :SIMPLE
 IRB.conf[:AUTO_INDENT_MODE] = false
 ```
 
+### Basics
+
 ``` sh
 rails console
 
@@ -172,6 +174,13 @@ rails db:migrate VERSION=0
 # https://iwjp.net/blog/2018/10/18/rails_freeze/
 bin/spring stop
 ```
+
+### memo
+
+- yieldメソッドはWebサイトのレイアウトにページごとの内容を挿入
+- erb の生成する HTML の中の、画像ファイル等に対するランダムなsrcの文字列
+  - 例えば画像ファイルを新しい画像に更新したときに、ブラウザ内に保存されたキャッシュに意図的にヒットさせないようにするための仕組み
+
 
 ## Rails Command
 
