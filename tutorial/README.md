@@ -146,6 +146,9 @@ class Word < String
 end
 w = Word.new("foobar")
 w.palindrome?
+
+# 多重代入 (Multiple Assignment) 
+@user.password = @user.password_confirmation = "a" * 5
 ```
 
 ## Rails
@@ -207,6 +210,48 @@ SCSSというフォーマットに対応。
   - 基本的には`_path`書式を使う
   - リダイレクトの場合のみ`_url`書式を使う
 
+### Active Record
+Migration と共に、データベースの細部をほぼ完全に隠蔽し、切り離すのに貢献。
+
+ApplicationRecord を継承したモデルが何ができるのか。
+
+
+```sh
+rails console --sandbox
+
+# new はメモリ上に作成
+user = User.new(name: "Michael Hartl", email: "mhartl@example.com")
+Validity: user.validate?
+# save で実際に DB に保存
+user.save
+# create = new + save, but 生成と保存は分けた方が何かと良い
+user = User.create(name: "Michael Hartl", email: "mhartl@example.com")
+
+user.name.class
+
+User.find(3)
+User.find_by(email: "mhartl@example.com")
+
+user.reload.email
+
+# なるほど、マジックカラムである created_at も更新可能なのか〜
+user.created_at = 1.year.ago
+```
+
+- Active Recordはデータベースのレベルでは一意性を保証していない
+  - データベースレベルでも一意性を（別途）強制する必要がある
+- セキュアなパスワードの実装は、`has_secure_password` というRailsのメソッドを呼び出すだけでほとんど終わってしまいます
+  - `password_digest` という属性がモデル内に含まれていることが、使用の条件！
+
+### Commands
+
+``` sh
+rails test
+rails test:models
+rails test:integration
+```
+
+
 ## Rails Command
 
 |command|abbreviation|
@@ -221,3 +266,5 @@ SCSSというフォーマットに対応。
 
 - REpresentational State Transfer
 - ポンド記号#
+- コントローラ名には複数形を使い、モデル名には単数系を用いる！
+- `created_at`と`updated_at`という２つの「マジックカラム (Magic Columns)」が追加される。。。

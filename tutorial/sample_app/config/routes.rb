@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # static_pages/homeへのアクセス
   # StaticPagesコントローラ内のhomeアクションが返る
   root 'static_pages#home'
-  
+
   # これだけで名前付きルートが使えるようになる！（？）
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'

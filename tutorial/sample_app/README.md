@@ -7,6 +7,41 @@ rails generate controller StaticPages home help
 
 # new アクションを追加
 rails generate controller Users new
+
+rails generate model User name:string email:string
+rails db:migrate
+rails db:rollback
+
+# email に index を追加する
+rails generate migration add_index_to_users_email
+
+rails generate migration add_password_digest_to_users password_digest:string
+```
+
+create user by hand
+
+```sh
+# into console
+rails console
+
+# create a uesr
+User.create(name: "Michael Hartl", email: "mhartl@example.com", password: "foobar", password_confirmation: "foobar")
+
+user = User.find_by(email: "mhartl@example.com")
+user.authenticate("wrong_password")
+user.authenticate("foobar")
+
+# 認証にはばんばんを使う
+>> !!user.authenticate("foobar")
+=> true
+>> !!user.authenticate("wrong_password")
+=> false
+
+# うまくいかない
+user.name = "hogee"
+user.save
+# 
+user.update_attribute(:name, "El Duderino")
 ```
 
 ## test
@@ -25,6 +60,8 @@ rails generate controller Users new
 * バグを見つけたら、そのバグを再現するテストを「先に」書き、回帰バグを防ぐ体制を整えてから修正に取りかかる
 * すぐにまた変更しそうなコード (HTML構造の細部など) に対するテストは「後で」書く
 * リファクタリングするときは「先に」テストを書く。特に、エラーを起こしそうなコードや止まってしまいそうなコードを集中的にテストする
+
+モデルのバリデーション機能は、テスト駆動開発とまさにピッタシの機能と言えます
 
 ## Links
 - [Sample Code (GitBucket)](https://bitbucket.org/railstutorial/sample_app_4th_ed/src/master/)
