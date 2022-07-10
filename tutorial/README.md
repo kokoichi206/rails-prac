@@ -33,6 +33,8 @@ IRB.conf[:PROMPT_MODE] = :SIMPLE
 IRB.conf[:AUTO_INDENT_MODE] = false
 ```
 
+パーシャル（partial）で使う普遍的な命名規約として、`_foobar.html.erb`
+
 ### Basics
 
 ``` sh
