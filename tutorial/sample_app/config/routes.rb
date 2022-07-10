@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/new'
 
   # static_pages/homeへのアクセス
   # StaticPagesコントローラ内のhomeアクションが返る
