@@ -11,6 +11,10 @@ rails generate controller Users new
 rails generate model User name:string email:string
 rails db:migrate
 rails db:rollback
+
+# email に index を追加する
+# ここの文の作り方のルールを調べる: 魔法みたい？
+rails generate migration add_index_to_users_email
 ```
 
 ## test
@@ -29,6 +33,8 @@ rails db:rollback
 * バグを見つけたら、そのバグを再現するテストを「先に」書き、回帰バグを防ぐ体制を整えてから修正に取りかかる
 * すぐにまた変更しそうなコード (HTML構造の細部など) に対するテストは「後で」書く
 * リファクタリングするときは「先に」テストを書く。特に、エラーを起こしそうなコードや止まってしまいそうなコードを集中的にテストする
+
+モデルのバリデーション機能は、テスト駆動開発とまさにピッタシの機能と言えます
 
 ## Links
 - [Sample Code (GitBucket)](https://bitbucket.org/railstutorial/sample_app_4th_ed/src/master/)

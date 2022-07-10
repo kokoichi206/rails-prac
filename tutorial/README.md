@@ -235,6 +235,17 @@ user.reload.email
 user.created_at = 1.year.ago
 ```
 
+- Active Recordはデータベースのレベルでは一意性を保証していない
+  - データベースレベルでも一意性を（別途）強制する必要がある
+
+### Commands
+
+``` sh
+rails test
+rails test:models
+rails test:integration
+```
+
 
 ## Rails Command
 
