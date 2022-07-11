@@ -60,4 +60,5 @@ jobs:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         working-directory: ./tutorial/sample_app
         run: |
+          set -o pipefail
           bundle exec rubocop | reviewdog -reporter=github-pr-review -f=rubocop
