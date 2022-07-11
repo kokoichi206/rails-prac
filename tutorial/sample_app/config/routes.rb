@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new'
 
+  post '/signup', to: 'users#create'
+
   # /users/1 のような URL を有効にする
   resources :users
 

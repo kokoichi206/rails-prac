@@ -149,6 +149,19 @@ w.palindrome?
 
 # 多重代入 (Multiple Assignment) 
 @user.password = @user.password_confirmation = "a" * 5
+
+
+# any は empty と補完
+>> user.errors.empty?
+=> false
+>> user.errors.any?
+=> true
+
+# 活用させる！
+>> helper.pluralize(1, "error")
+=> "1 error"
+>> helper.pluralize(5, "error")
+=> "5 errors"
 ```
 
 ## Rails
@@ -283,6 +296,24 @@ password_digest: "$2a$10$ccgDIfU9MN1VOLb6O6h9LuD8/m8Bu2kL//jgVAVLs4HKu4szTaEsy"
 y user.attributes でも一緒
 ```
 
+### Strong Parameters
+
+``` ruby
+# マスアサインメント: ハッシュを使って Ruby の変数を初期化するもの
+@user = User.new(params[:user])
+```
+
+上記のようなマスアサインメントは、セキュリティ上危険！params に対する捜査ができないので、好き勝手なデータを紛れコマされる！
+
+この問題回避のため、以前はモデル層で attr_accessible メソッドを使うことで回避していたが、Rails 4.0 では Strong Parameters というテクニックを使うことが推奨されている。
+必須のパラメータと許可されたパラメータを指定できる。
+
+``` ruby
+params.require(:user).permit(:name, :email, :password, :password_confirmation)
+@user = User.new(user_params)
+```
+
+
 ## Rails Command
 
 |command|abbreviation|
@@ -300,3 +331,4 @@ y user.attributes でも一緒
 - ポンド記号#
 - コントローラ名には複数形を使い、モデル名には単数系を用いる！
 - `created_at`と`updated_at`という２つの「マジックカラム (Magic Columns)」が追加される。。。
+- 複数のビューで使われるパーシャルは専用のディレクトリ「shared」によく置か
