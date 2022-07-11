@@ -16,6 +16,9 @@ rails db:rollback
 rails generate migration add_index_to_users_email
 
 rails generate migration add_password_digest_to_users password_digest:string
+
+# テストも rails コマンドで作れる
+rails generate integration_test users_signup
 ```
 
 create user by hand
@@ -42,7 +45,19 @@ user.name = "hogee"
 user.save
 # 
 user.update_attribute(:name, "El Duderino")
+
+
+Digest::MD5::hexdigest(email.downcase)
 ```
+
+```
+/signup?admin=1
+```
+
+### flash
+
+登録完了後に表示されるページにメッセージを表示し、2度目以降にはそのページにメッセージを表示しないようにする。
+このような情報を表示するために、flash という特殊な変数を
 
 ## test
 
