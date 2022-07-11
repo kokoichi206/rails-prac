@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # static_pages/homeへのアクセス
   # StaticPagesコントローラ内のhomeアクションが返る
   root 'static_pages#home'
