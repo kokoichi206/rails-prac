@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       # redirect to logined page
     else
       # error message
+      flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
     end
   end

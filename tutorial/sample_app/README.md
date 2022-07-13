@@ -92,6 +92,13 @@ Digest::MD5::hexdigest(email.downcase)
 rails generate controller Sessions new
 
 rails routes
+
+rails generate integration_test users_login
+
+rails test test/integration/users_login_test.rb
+
+flash[:danger] = 'Invalid email/password combination'
+flash.now[:danger] = 'Invalid email/password combination'
 ```
 
 今回扱うセッションは Active Record オブジェクトではない。
