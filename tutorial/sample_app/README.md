@@ -103,6 +103,9 @@ flash.now[:danger] = 'Invalid email/password combination'
 
 今回扱うセッションは Active Record オブジェクトではない。
 
+ユーザーがログイン中の状態 = sessionにユーザーidが存在している
+= current_user が nil 
+
 
 ## Links
 - [Sample Code (GitBucket)](https://bitbucket.org/railstutorial/sample_app_4th_ed/src/master/)
