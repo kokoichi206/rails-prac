@@ -78,5 +78,24 @@ Digest::MD5::hexdigest(email.downcase)
 
 モデルのバリデーション機能は、テスト駆動開発とまさにピッタシの機能と言えます
 
+## 認証システム
+
+1: ブラウザを閉じるとログインを破棄する（Session）
+2: ユーザーのログイン情報を自動で保存する（Cookie）
+3: ユーザーがチェックボックスをオンにした場合のみログインを保存する（Remember me）
+
+セッションは HTTP プロトコルと階層が異なる（上にある）ので、HTTP の特性とは別に接続を確保できる。
+セッションを実装する方法として最も一般的なのは cookie を使う方法。
+
+
+``` sh
+rails generate controller Sessions new
+
+rails routes
+```
+
+今回扱うセッションは Active Record オブジェクトではない。
+
+
 ## Links
 - [Sample Code (GitBucket)](https://bitbucket.org/railstutorial/sample_app_4th_ed/src/master/)
