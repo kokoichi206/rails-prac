@@ -1,28 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe "posts/index", type: :view do
+  current_user = User.first_or_create!(email: 'john.doe@example.com', password: 'password', password_confirmation: 'password')
+
   before(:each) do
     assign(:posts, [
       Post.create!(
         title: "Title",
         body: "MyText",
-        user: nil,
-        views: 2
+        user: current_user,
+        views: 141
       ),
       Post.create!(
         title: "Title",
         body: "MyText",
-        user: nil,
-        views: 2
+        user: current_user,
+        views: 22
       )
     ])
   end
 
   it "renders a list of posts" do
     render
-    assert_select "tr>td", text: "Title".to_s, count: 2
-    assert_select "tr>td", text: "MyText".to_s, count: 2
-    assert_select "tr>td", text: nil.to_s, count: 2
-    assert_select "tr>td", text: 2.to_s, count: 2
+    assert_select "div>p", text: "Show this post".to_s, count: 2
   end
 end
