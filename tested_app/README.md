@@ -24,3 +24,10 @@ rails spec
 rails g scaffold posts title:string body:text user:references views:integer
 rails db:migrate RAILS_ENV=test
 ```
+
+## Spec
+
+```sh
+# How to ru9n spec
+$ rails spec
+```
