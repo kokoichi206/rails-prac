@@ -22,4 +22,5 @@ rails generate rspec:install
 rails spec
 
 rails g scaffold posts title:string body:text user:references views:integer
+rails db:migrate RAILS_ENV=test
 ```
