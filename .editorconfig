@@ -16,3 +16,6 @@ indent_size = 2
 
 [*.rb]
 indent_size = 2
+
+[*.erb]
+indent_size = 2
