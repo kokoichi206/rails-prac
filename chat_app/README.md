@@ -14,6 +14,10 @@ rails g controller rooms index
 
 rails turbo:install
 rails turbo:install:redis
+
+# message
+rails g model Message user:references room:references body:text
+rails db:migrate
 ```
 
 ## Redis
