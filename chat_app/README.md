@@ -11,6 +11,17 @@ rails s
 
 rails g model Room name:string is_private:boolean
 rails g controller rooms index
+
+rails turbo:install
+rails turbo:install:redis
+```
+
+## Redis
+
+```sh
+brew install redis
+redis-server --daemonize yes
+redis-server --daemonize yes
 ```
 
 ## Links
