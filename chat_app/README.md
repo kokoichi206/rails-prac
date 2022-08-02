@@ -30,6 +30,22 @@ rails g controller users show
 
 rails g model Participant user:references room:references
 rails db:migrate
+
+# ----- Chap 4 -----
+rails active_storage:install
+rails db:migrate
+
+ails g devise:controllers users
+
+rails g devise:views
+
+## change Gemfile
+brew install image_processing
+brew install vips
+bundle install
+
+rails c
+-> User.find_each(&:save)
 ```
 
 ## Redis

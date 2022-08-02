@@ -18,5 +18,9 @@ module ChatApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # ----- For image processing in Rails 7 -----
+    # https://stackoverflow.com/questions/70849182/could-not-open-library-vips-42-could-not-open-library-libvips-42-dylib
+    config.active_storage.variant_processor = :mini_magick
   end
 end
