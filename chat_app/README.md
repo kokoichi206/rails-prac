@@ -25,8 +25,11 @@ rails db:migrate
 
 rails g controller messages
 
-# ----- Chap 1 -----
+# ----- Chap 2 -----
 rails g controller users show
+
+rails g model Participant user:references room:references
+rails db:migrate
 ```
 
 ## Redis

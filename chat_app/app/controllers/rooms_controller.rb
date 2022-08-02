@@ -25,6 +25,6 @@ class RoomsController < ApplicationController
   def create
     # prams に渡ってき方は何で決まってる？
     # @room = Room.create(name: params["room"]["name"])
-    @room = Room.create(name: params["name"])
+    @room = Room.create(name: params['room']['name'])
   end
 end
