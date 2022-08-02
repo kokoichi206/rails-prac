@@ -43,6 +43,9 @@ rails g devise:views
 brew install image_processing
 brew install vips
 bundle install
+
+rails c
+-> User.find_each(&:save)
 ```
 
 ## Redis
