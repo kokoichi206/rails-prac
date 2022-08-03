@@ -50,6 +50,7 @@ rails c
 # ----- Chap 5 -----
 rails g migration add_status_to_users status:integer
 
+rails g channel appearance
 ```
 
 ## Redis

@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_status
 
   def index
     @rooms = Room.new
@@ -26,5 +27,10 @@ class RoomsController < ApplicationController
     # prams に渡ってき方は何で決まってる？
     # @room = Room.create(name: params["room"]["name"])
     @room = Room.create(name: params['room']['name'])
+  end
+
+  private
+  def set_status
+    current_user.update!(status: User.statuses[:online]) if current_user
   end
 end
